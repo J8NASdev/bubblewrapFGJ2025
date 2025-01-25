@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 41bce48738e0af3449e749893c32a58e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Cute Dino
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 00a2bc4be4a262f478cbbce425673388, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
