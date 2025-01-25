@@ -7,45 +7,30 @@ public class MicrophoneTest : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
 
-    private AudioClip audioClip;
     private string micName;
-    private float recordingTime = 10;
-    private bool testDone = false;
-
-    // Start is called before the first frame update
+    [SerializeField] private int frequency = 44100; //The frequency that we record the sound at.
+    [SerializeField] private float[] samples; //The length of this array needs to be a power of 2
+ 
     void Start()
     {
-        Debug.Log("Microphones");
+        string listMics = "Microphones:\n";
         foreach (string mic in Microphone.devices)
         {
-            Debug.Log(mic);
+            listMics += mic + "\n";
         }
-        Debug.Log("end of list");
+        Debug.Log(listMics);
+
         micName = Microphone.devices[0];
-
         Debug.Log("Start recording using " + micName);
-        audioClip = Microphone.Start(micName, false, (int)recordingTime, 44100);
-
+        audioSource.loop = true;
+        audioSource.clip = Microphone.Start(micName, true, 10, frequency);
+        while(!(Microphone.GetPosition(null) > 0)) {}
+        audioSource.Play();
     }
 
 
-
-    // Update is called once per frame
     void Update()
     {
-        if (testDone) return;
-
-        recordingTime -= Time.deltaTime;
-        if (recordingTime > 0) return;
-
-        //This happens after the recording time has expired
-        Microphone.End(micName);
-
-        Debug.Log("Stoped recoding sound");
-
-        audioSource.clip = audioClip;
-        audioSource.Play();
-        testDone = true;
-
+        audioSource.GetOutputData(samples, 0);
     }
 }
