@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         transform.position = bubble.position;
         inBubble = bubble;
         rbody.constraints = RigidbodyConstraints2D.FreezeAll;
-        cameraMovement.SetNewHeight(bubble.position.y);
+        cameraMovement.SetNewHeight(bubble);
 
         deathYPos = bubble.position.y+ dieOffset;
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +16,6 @@ public class Bubble : MonoBehaviour
         if (!collider.CompareTag("Player")) return;
 
         collider.gameObject.GetComponent<Player>().SetBubble(transform);
+        transform.parent.GetComponent<BubbleMover>().PlyerMovedHere();
     }
 }
