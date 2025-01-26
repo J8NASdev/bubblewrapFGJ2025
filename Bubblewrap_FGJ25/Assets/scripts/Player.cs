@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        deathYPos = transform.position.y + dieOffset;
     }
 
     // Update is called once per frame
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         rbody.constraints = RigidbodyConstraints2D.FreezeAll;
         cameraMovement.SetNewHeight(bubble.position.y);
 
-        deathYPos = (bubble.position.y) - dieOffset;
+        deathYPos = bubble.position.y+ dieOffset;
     }
 
 
