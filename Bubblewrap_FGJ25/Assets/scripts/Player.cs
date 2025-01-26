@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public float dieOffset;
     float deathYPos;
     public CameraMovement cameraMovement;
+    public Animator animator;
 
    
 
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("velocity", rbody.velocity.y);
         if(transform.position.y < deathYPos)
         {
             KillPlayer();
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
     public void Jump()
     {
         if (!inBubble) return;
+        animator.SetBool("jump", true);
 
         rbody.constraints = RigidbodyConstraints2D.None;
         rbody.velocity = Vector2.zero;
@@ -54,6 +57,7 @@ public class Player : MonoBehaviour
 
     public void SetBubble(Transform bubble)
     {
+        animator.SetBool("jump", false);
         transform.position = bubble.position;
         inBubble = bubble;
         rbody.constraints = RigidbodyConstraints2D.FreezeAll;

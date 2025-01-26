@@ -1291,64 +1291,17 @@ Transform:
   m_Father: {fileID: 1822526914}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1151801704 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 737552704505177573, guid: 89702e82f214eb047b2083f143609853, type: 3}
+--- !u!114 &1151801706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1151801706, guid: 89702e82f214eb047b2083f143609853, type: 3}
   m_PrefabInstance: {fileID: 1239167194}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &1151801705
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151801704}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 4
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &1151801706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151801704}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29b1b2a152e10478f8f1072f08dda1b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbody: {fileID: 1151801705}
-  jumpForce: 2800
-  dieOffset: -5
-  cameraMovement: {fileID: 963194229}
---- !u!58 &1151801708
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151801704}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &1161594571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,12 +1403,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1151801706, guid: 89702e82f214eb047b2083f143609853, type: 3}
+      propertyPath: cameraMovement
+      value: 
+      objectReference: {fileID: 963194229}
     - target: {fileID: 737552704505177573, guid: 89702e82f214eb047b2083f143609853, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 737552704505177573, guid: 89702e82f214eb047b2083f143609853, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7399632652311701959, guid: 89702e82f214eb047b2083f143609853, type: 3}
