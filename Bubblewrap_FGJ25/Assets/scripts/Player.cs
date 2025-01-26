@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Player : MonoBehaviour
     float deathYPos;
     public CameraMovement cameraMovement;
     public Animator animator;
+
+    public bool gameStarted = false;
 
    
 
@@ -44,6 +47,7 @@ public class Player : MonoBehaviour
 
     public void Jump()
     {
+        if (!gameStarted) return;
         if (!inBubble) return;
         animator.SetBool("jump", true);
 
@@ -70,6 +74,13 @@ public class Player : MonoBehaviour
     void KillPlayer()
     {
         Debug.Log("Player Died");
+        gameStarted = false;
+        Restart();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
