@@ -1009,12 +1009,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f0edb2dd62e1744b59af79a81d8171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1151801706}
   audioSource: {fileID: 879330130}
   frequencyOfBubbleWrap: 44100
-  numberOfSamples: 8192
-  soundDuration: 3
-  okSoundDiff: 0.005
-  successPercentageRequired: 0.9
+  numberOfSamples: 16
+  soundDuration: 1
+  okSoundDiff: 0.0001
+  successPercentageRequired: 0.8
+  profile: {fileID: 8300000, guid: 738f22da39674194fad64dedde565fb1, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

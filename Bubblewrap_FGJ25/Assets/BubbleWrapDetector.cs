@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BubbleWrapDetector : MonoBehaviour
 {
+    [SerializeField] Player player;
     [SerializeField] AudioSource audioSource;
 
     private string micName;
@@ -13,7 +14,7 @@ public class BubbleWrapDetector : MonoBehaviour
     [SerializeField] private int soundDuration = 1; //The duration in seconds for the desired sound.
     [SerializeField] private float okSoundDiff = .001f; //How much can each specific sound sample differ from the profile to count as a success.
     [SerializeField] private float successPercentageRequired = .8f; //How many of the sound samples need to be a success for it to count as bubble wrap sound.
-
+    [SerializeField] private AudioClip profile;
 
     private float[] samples; 
     private float[] bubbleWrapProfile; 
@@ -38,6 +39,8 @@ public class BubbleWrapDetector : MonoBehaviour
         audioSource.clip = Microphone.Start(micName, true, soundDuration, frequencyOfBubbleWrap);
         while(!(Microphone.GetPosition(null) > 0)) {}
         audioSource.Play();
+
+        profile.GetData(bubbleWrapProfile, 0);
     }
 
     void Update()
@@ -48,13 +51,17 @@ public class BubbleWrapDetector : MonoBehaviour
         //Pressing space down sets the bubble wrap profile. This profile is what the system thinks bubble wrap will sound like.
         //This has some weird delays, but does kind of work.'
         //TODO We need to replace this with a better system for recording and saving the profile.
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.R))
         {
             audioSource.GetOutputData(bubbleWrapProfile, 0);
         }
 
         //Checking every frame if is bubble wrap. This is here for testing.
-        if(IsBubbleWrapSound(samples, bubbleWrapProfile, okSoundDiff, successPercentageRequired)) Debug.Log("Success");
+        if (IsBubbleWrapSound(samples, bubbleWrapProfile, okSoundDiff, successPercentageRequired))
+        {
+            Debug.Log("pop");
+            player.Jump();
+        }
 
         //Pressing B down will stop the microphone and replay the bubble wrap profile on loop. You need to restart the game after this. This is just here for testing.
         if(Input.GetKeyDown(KeyCode.B))
